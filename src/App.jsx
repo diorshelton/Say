@@ -5,8 +5,8 @@ import Button from "./components/Button";
 function App() {
 	return (
 		<>
-			<Header>Welcome to Say</Header>
 			<div>
+				<Header headingText={"Welcome To Say"}></Header>
 				<Button>Sign in</Button>
 				<Button>Register</Button>
 			</div>

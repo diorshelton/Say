@@ -6,7 +6,7 @@ const Button = styled.button`
   margin: 1em;
   padding: 0.25em 1em;
   border: 2px solid #4f60bf;
-  border-radius: 4px;
+  border-radius: 36px;
 `;
 
 export default Button;
