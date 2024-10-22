@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 const StyledForm = styled.form`
 	form {
@@ -22,7 +23,7 @@ const StyledForm = styled.form`
 	label {
 		display: block;
 		margin: 1.25rem 0 0.625rem;
-    color: black;
+		color: black;
 	}
 	button {
 		margin-top: 30px;
@@ -50,6 +51,9 @@ const Form = ({ isSignInForm }) => {
 						<input type="password" name="password" />
 					</div>
 					<button type="submit">Sign in</button>
+					<Link to={"/"}>
+						<button type="submit">Cancel</button>
+					</Link>
 				</form>
 			) : (
 				<form className="register">
@@ -74,6 +78,9 @@ const Form = ({ isSignInForm }) => {
 						<input type="password" name="password" />
 					</div>
 					<button type="submit">Register</button>
+					<Link to={"/"}>
+						<button type="submit">Cancel</button>
+					</Link>
 				</form>
 			)}
 		</StyledForm>

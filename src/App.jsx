@@ -1,15 +1,16 @@
-import Header from "./components/Header";
 import "./App.css";
-import Button from "./components/Button";
+import { Routes, Route } from "react-router-dom";
+import Form from "./components/Form";
+import Welcome from "./components/Welcome";
 
 function App() {
 	return (
 		<>
-			<div>
-				<Header headingText={"Welcome To Say"}></Header>
-				<Button>Sign in</Button>
-				<Button>Register</Button>
-			</div>
+			<Routes>
+				<Route path="/" element={<Welcome />} />
+				<Route path="/sign-in" element={<Form isSignInForm={true} />} />
+				<Route path="/register" element={<Form isSignInForm={false} />} />
+			</Routes>
 		</>
 	);
 }
