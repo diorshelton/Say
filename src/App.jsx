@@ -1,17 +1,21 @@
+import { useState } from "react";
 import "./App.css";
-import { Routes, Route } from "react-router-dom";
 import Welcome from "./components/Welcome";
-import SignInForm from "./components/forms/SignInForm";
+// import SignInForm from "./components/forms/SignInForm";
 import RegisterForm from "./components/forms/RegisterForm";
 
 function App() {
+  const [message, setMessage]= useState([])
+
+  const passMessages = (input) => {
+    setMessage(input);
+  }
+
 	return (
 		<>
-			<Routes>
-				<Route path="/" element={<Welcome />} />
-				<Route path="/sign-in" element={<SignInForm/>} />
-				<Route path="/register" element={<RegisterForm/>}/>
-			</Routes>
+			<Welcome messageCenter={message.msg}/>
+			{/* <SignInForm passMessages={passMessages}/> */}
+      <RegisterForm passMessages={passMessages}></RegisterForm>
 		</>
 	);
 }

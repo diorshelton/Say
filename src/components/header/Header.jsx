@@ -1,22 +1,17 @@
-import styled from "styled-components";
+import { StyledHeader } from "./styles";
 import PropTypes from "prop-types";
 
-const StyledHeader = styled.h1`
-	font-size: 1rem;
-	text-align: center;
-	color: #1be662;
-	padding: 2rem;
-`;
+
 const Header = ({ headingText }) => {
 	return (
 		<StyledHeader>
-			<h1>{headingText}</h1>
+			{headingText}
 		</StyledHeader>
 	);
 };
 
 Header.propTypes = {
-	headingText: PropTypes.string.isRequred,
+	headingText: PropTypes.string.isRequired,
 };
 
 export default Header;
