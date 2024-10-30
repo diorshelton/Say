@@ -1,13 +1,18 @@
 import styled from "styled-components";
 
 export const StyledForm = styled.form`
-	form {
-		text-align: left;
+	.form-wrapper {
+		border: solid red;
+		text-align: center;
 		margin: 0 auto;
 		padding: 3.875rem;
 		box-shadow: 1px 2px 3px rgba(245, 242, 242, 0.1);
 		border-radius: 0.625rem;
-		color: white;
+		color: white; 
+	}
+	.button-wrapper {
+		display: flex;
+		justify-content: center;
 	}
 	input {
 		background-color: white;
@@ -15,14 +20,14 @@ export const StyledForm = styled.form`
 		border-radius: 0.25rem;
 		border: 1px solid #1d1d1d;
 		font-size: 1em;
-		width: 100%;
+		max-width: 43rem;
 		padding: 0 0.55rem;
-    color: black;
+		color: black;
 	}
 	label {
 		display: block;
 		margin: 1.25rem 0 0.625rem;
-		color: white;
+		color: black;
 	}
 	button {
 		margin-top: 30px;

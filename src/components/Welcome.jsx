@@ -1,27 +1,20 @@
 import styled from "styled-components";
 import Header from "./header/Header";
-import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
-import Button from "./button/Button";
+import Layout from "./Layout";
 
-const StyledWelcome = styled.div``;
+const StyledWelcome = styled.div`
+	display: flex;
+	place-content:center;
+`;
 
-const Welcome = ({ messageCenter }) => {
+const Welcome = () => {
 	return (
-		<StyledWelcome>
-			<Header headingText={"Welcome To Say"}></Header>
-			<p>{messageCenter}</p>
-			<Link to= '/auth/login'> 
-				<Button>Sign in</Button>
-			</Link>
-			<Link to={"/auth/register"}>
-				<Button>Register</Button>
-			</Link>
-		</StyledWelcome>
+		<Layout>
+			<StyledWelcome>
+				<Header headingText={"Welcome To Say"}></Header>
+			</StyledWelcome>
+		</Layout>
 	);
 };
 
-Welcome.propTypes = {
-	messageCenter: PropTypes.string,
-};
 export default Welcome;

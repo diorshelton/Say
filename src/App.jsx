@@ -1,21 +1,22 @@
-import { useState } from "react";
-import "./App.css";
+// import { useState } from "react";
+// import "./App.css";
 import Welcome from "./components/Welcome";
+import Layout from "./components/Layout";
 // import SignInForm from "./components/forms/SignInForm";
-import RegisterForm from "./components/forms/RegisterForm";
+// import RegisterForm from "./components/forms/RegisterForm";
 
 function App() {
-  const [message, setMessage]= useState([])
+  // const [message, setMessage]= useState([])
 
-  const passMessages = (input) => {
-    setMessage(input);
-  }
+  // const passMessages = (input) => {
+  //   setMessage(input);
+  // }
 
 	return (
 		<>
-			<Welcome messageCenter={message.msg}/>
+			<Welcome/>
 			{/* <SignInForm passMessages={passMessages}/> */}
-      <RegisterForm passMessages={passMessages}></RegisterForm>
+      {/* <RegisterForm passMessages={passMessages}></RegisterForm> */}
 		</>
 	);
 }
