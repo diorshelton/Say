@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export  const StyledUserPost = styled.div`
+export  const StyledPost = styled.div`
   
 `;
 

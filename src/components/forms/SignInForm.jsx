@@ -1,10 +1,9 @@
 import { Link, useNavigate } from "react-router-dom";
 import { StyledForm } from "./styles";
-import { PropTypes } from "prop-types";
 import Layout from "../Layout";
 
-const SignInForm = ({ passMessages }) => {
-	const navigate = useNavigate();
+const SignInForm = () => {
+	// const navigate = useNavigate();
 	const handleSignIn = async (e) => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
@@ -13,6 +12,7 @@ const SignInForm = ({ passMessages }) => {
 		try {
 			const response = await fetch("http://localhost:3000/api/v1/auth/login", {
 				method: "POST",
+				credentials:"include",
 				headers: {
 					"Content-Type": "application/json",
 				},
@@ -22,11 +22,10 @@ const SignInForm = ({ passMessages }) => {
 				}),
 			});
 			const readableStream = await response.json();
-			console.log(readableStream.token);
-			passMessages(readableStream);
-			if (readableStream.token) {
-				navigate("/posts");
-			}
+			console.log(readableStream);
+			// if (readableStream.token) {
+			// 	navigate("/posts");
+			// }
 		} catch (error) {
 			console.log(error);
 		}
@@ -63,10 +62,6 @@ const SignInForm = ({ passMessages }) => {
 			</StyledForm>
 		</Layout>
 	);
-};
-
-SignInForm.propTypes = {
-	passMessages: PropTypes.string,
 };
 
 export default SignInForm;

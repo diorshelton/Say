@@ -1,9 +1,9 @@
-import { StyledUserPost } from "./styles";
+import { StyledPost } from "./styles";
 import PropTypes from "prop-types";
 
 const Post = ({ title, message, id, comments }) => {
 	return (
-		<StyledUserPost>
+		<StyledPost>
 			<div className="post" id={id}>
 				<h3>{title}</h3>
 				<p>{message}</p>
@@ -13,7 +13,7 @@ const Post = ({ title, message, id, comments }) => {
 					))}
 				</ul>
 			</div>
-		</StyledUserPost>
+		</StyledPost>
 	);
 };
 
