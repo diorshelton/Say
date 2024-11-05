@@ -1,9 +1,12 @@
 import { Link, useNavigate } from "react-router-dom";
 import { StyledForm } from "./styles";
 import Layout from "../Layout";
+import { useState } from "react";
 
 const SignInForm = () => {
-	// const navigate = useNavigate();
+	const navigate = useNavigate();
+	const [message, setMessage] = useState(" ");
+
 	const handleSignIn = async (e) => {
 		e.preventDefault();
 		const formData = new FormData(e.target);
@@ -12,7 +15,7 @@ const SignInForm = () => {
 		try {
 			const response = await fetch("http://localhost:3000/api/v1/auth/login", {
 				method: "POST",
-				credentials:"include",
+				credentials: "include",
 				headers: {
 					"Content-Type": "application/json",
 				},
@@ -21,13 +24,14 @@ const SignInForm = () => {
 					password: data.password,
 				}),
 			});
-			const readableStream = await response.json();
-			console.log(readableStream);
-			// if (readableStream.token) {
-			// 	navigate("/posts");
-			// }
+			const jsonData = await response.json();
+			if (jsonData.token) {
+				navigate("/posts");
+			}
+			return setMessage(jsonData.msg)
 		} catch (error) {
 			console.log(error);
+			setMessage(error);
 		}
 	};
 
@@ -39,15 +43,16 @@ const SignInForm = () => {
 				action="auth/login"
 				onSubmit={handleSignIn}
 			>
+				<p>{message}</p>
 				<div className="form-wrapper">
 					<div>
-						<label name="email" htmlFor="email">
+						<label name="email" htmlFor="email" aria-required>
 							enter your email:
 						</label>
 						<input name="email" id="email" />
 					</div>
 					<div>
-						<label name="password" htmlFor="password">
+						<label name="password" htmlFor="password" aria-required>
 							enter your password:
 						</label>
 						<input type="password" name="password" id="password" />
