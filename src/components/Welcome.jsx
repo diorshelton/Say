@@ -10,16 +10,16 @@ const StyledWelcome = styled.div`
 
 const Welcome = () => {
 	return (
-		// <Layout>
-		// 	<StyledWelcome>
-		// 		<Header headingText={"Welcome To Say"}></Header>
-		// 	</StyledWelcome>
-		// </Layout>
-				<Post title={"title"}
-				message={"message"}
-				id={"34"}
-				comments={"3"}
-				/>
+		<Layout>
+			<StyledWelcome>
+				<Header headingText={"Welcome To Say"}></Header>
+			</StyledWelcome>
+			<Post title={"title"}
+			message={"message"}
+			id={"34"}
+			comments={["3", "4"]}
+			/>
+		</Layout>
 	);
 };
 

@@ -30,6 +30,9 @@ const UserPosts = () => {
 			<Layout>
 				<div className="posts-container">
 					<h2 className="post-heading">User Posts</h2>
+					<div className="new-post">
+						<button>Create a new post</button>
+					</div>
 					<div className="post-wrapper">
 						{postData.map((post, index) => {
 							return (

@@ -7,8 +7,13 @@ const Post = ({ title, message, id, comments }) => {
 			<div className="post" id={id}>
 				<h3>{title}</h3>
 				<p>{message}</p>
-        <p>comments {comments}</p>
-
+        <ul>comments {comments.length}
+          {/* TO DO Render comments */}
+          {/* {console.log(comments)} */}
+          {/* {comments.map(comment, index) => { <li>{}</li>}} */}
+        </ul>
+        <button>Edit</button>
+        <button>Delete</button>
 			</div>
 		</StyledPost>
 	);
@@ -20,5 +25,5 @@ Post.propTypes = {
 	title: PropTypes.string.isRequired,
 	message: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
-	comments: PropTypes.string.isRequired,
+	comments: PropTypes.array.isRequired,
 };
