@@ -1,21 +1,48 @@
-import { StyledPost } from "./styles";
+import ViewPost from "./ViewPost";
+import EditPost from "./EditPost";
+// import { StyledPost } from "./styles";
 import PropTypes from "prop-types";
 
-const Post = ({ title, message, id, comments }) => {
+const Post = ({ title, message, id, comments, buttonHandler}) => {
+  // let mode = true;
 	return (
-		<StyledPost>
-			<div className="post" id={id}>
-				<h3>{title}</h3>
-				<p>{message}</p>
-        <ul>comments {comments.length}
-          {/* TO DO Render comments */}
-          {/* {console.log(comments)} */}
-          {/* {comments.map(comment, index) => { <li>{}</li>}} */}
-        </ul>
-        <button>Edit</button>
-        <button>Delete</button>
-			</div>
-		</StyledPost>
+    // <EditPost title={title}
+    // message={message}
+    // id={id}
+    // buttonHandler={buttonHandler}/>
+    <ViewPost title={title}
+    message={message}
+    id={id}
+    buttonHandler={buttonHandler}/>
+		// <StyledPost onClick={buttonHandler} >
+		// 		<div className="form-wrapper">
+		// 			<div>
+		// 				<label rows="4" name="title">
+		// 					Title:
+		// 				</label>
+		// 				<br />
+		// 				<input
+		// 					name="title"
+		// 					type="text"
+		// 					id="title"
+		// 					placeholder="Post Title"
+		// 				></input>
+		// 			</div>
+		// 			<br />
+		// 			<div>
+		// 				<label name="message">Message</label>
+		// 				<br></br>
+		// 				<textarea
+		// 					name="message"
+		// 					rows="4"
+		// 					cols="30"
+		// 					type="text"
+		// 					id="message"
+		// 					placeholder="Message"
+		// 				></textarea>
+		// 			</div>
+		// 		</div>
+		// </StyledPost>
 	);
 };
 
@@ -25,5 +52,7 @@ Post.propTypes = {
 	title: PropTypes.string.isRequired,
 	message: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
-	comments: PropTypes.array.isRequired,
+	comments: PropTypes.array,
+	buttonHandler: PropTypes.func.isRequired,
+  mode: PropTypes.bool,
 };

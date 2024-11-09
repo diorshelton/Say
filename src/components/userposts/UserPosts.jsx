@@ -1,10 +1,13 @@
 import { StyledUserPosts } from "./styles";
 import Layout from "../Layout";
 import { useEffect, useState } from "react";
+import {Link} from "react-router-dom"
+import ViewPost from "../post/ViewPost";
 import Post from "../post/Post";
 
 const UserPosts = () => {
 	const [postData, setPostData] = useState([]);
+	// const [message, setMessage] = useState("nothing");
 
 	useEffect(() => {
 		const getPosts = async () => {
@@ -25,15 +28,25 @@ const UserPosts = () => {
 		getPosts();
 	}, []);
 
+  const buttonHandler = (e) => {
+    e.preventDefault()
+		let string = e.target.textContent;
+		let methodString = string.toUpperCase()
+		console.log(methodString)
+  }
+
 	return (
 		<StyledUserPosts>
 			<Layout>
 				<div className="posts-container">
 					<h2 className="post-heading">User Posts</h2>
+					{/* <p>{message}</p> */}
 					<div className="new-post">
-						<button>Create a new post</button>
+						<Link to='/newpost'>
+						<button>Create new post</button>
+						</Link>
 					</div>
-					<div className="post-wrapper">
+					<div id="post-wrapper">
 						{postData.map((post, index) => {
 							return (
 								<Post
@@ -41,7 +54,8 @@ const UserPosts = () => {
 									key={index}
 									id={post._id}
 									message={post.message}
-									comments={post.comments}
+									comments={post.comments.length}
+									buttonHandler={(e) => buttonHandler(e, post._id)}
 								/>
 							);
 						})}
