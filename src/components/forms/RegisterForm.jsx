@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const RegisterForm = () => {
 	const navigate = useNavigate();
-	const [message, setMessage] = useState("err");
+	const [message, setMessage] = useState("");
 
 	const handleForm = async (e) => {
 		e.preventDefault();
@@ -70,7 +70,7 @@ const RegisterForm = () => {
 					<div className="button-wrapper">
 						<button type="submit">Submit</button>
 						<Link to={"/"}>
-							<button type="submit">Cancel</button>
+							<button type="button">Cancel</button>
 						</Link>
 					</div>
 				</div>

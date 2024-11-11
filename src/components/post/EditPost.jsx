@@ -1,9 +1,21 @@
-import { StyledPost } from "./styles";
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { StyledNewEditPost } from "../new-edit/styles";
 import PropTypes from "prop-types";
+// import { useNavigate } from "react-router-dom";
 
-const EditPost = ({ title, message, id, buttonHandler }) => {
+const EditPost = ({ title, message, id, clickHandler, submitHandler, messageHandler }) => {
+
+	const [alertMessage, setAlertMessage] = useState(messageHandler);
+
 	return (
-		<StyledPost onClick={buttonHandler} id={id}>
+		<StyledNewEditPost
+			className="new-edit"
+			method="post"
+			onSubmit={submitHandler}
+			id={id}
+		>
+			<p>{alertMessage}</p>
 			<div className="form-wrapper">
 				<div>
 					<label rows="4" name="title">
@@ -31,7 +43,15 @@ const EditPost = ({ title, message, id, buttonHandler }) => {
 					></textarea>
 				</div>
 			</div>
-		</StyledPost>
+			<div className="button-wrapper">
+				<button type="submit">update</button>
+				<Link to="/posts">
+					<button onClick={clickHandler} type="button">
+						cancel
+					</button>
+				</Link>
+			</div>
+		</StyledNewEditPost>
 	);
 };
 
@@ -41,5 +61,7 @@ EditPost.propTypes = {
 	title: PropTypes.string.isRequired,
 	message: PropTypes.string.isRequired,
 	id: PropTypes.string.isRequired,
-	buttonHandler: PropTypes.func.isRequired,
+	clickHandler: PropTypes.func.isRequired,
+	submitHandler: PropTypes.func.isRequired,
+	messageHandler: PropTypes.string,
 };

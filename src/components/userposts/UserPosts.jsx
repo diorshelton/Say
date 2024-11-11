@@ -2,7 +2,6 @@ import { StyledUserPosts } from "./styles";
 import Layout from "../Layout";
 import { useEffect, useState } from "react";
 import {Link} from "react-router-dom"
-import ViewPost from "../post/ViewPost";
 import Post from "../post/Post";
 
 const UserPosts = () => {
@@ -28,13 +27,6 @@ const UserPosts = () => {
 		getPosts();
 	}, []);
 
-  const buttonHandler = (e) => {
-    e.preventDefault()
-		let string = e.target.textContent;
-		let methodString = string.toUpperCase()
-		console.log(methodString)
-  }
-
 	return (
 		<StyledUserPosts>
 			<Layout>
@@ -55,7 +47,6 @@ const UserPosts = () => {
 									id={post._id}
 									message={post.message}
 									comments={post.comments.length}
-									buttonHandler={(e) => buttonHandler(e, post._id)}
 								/>
 							);
 						})}

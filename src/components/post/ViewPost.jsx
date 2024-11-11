@@ -1,7 +1,7 @@
 import { StyledPost } from "./styles";
 import PropTypes from "prop-types";
 
-const ViewPost = ({ title, message, comments, id, handleClick }) => {
+const ViewPost = ({ title, message, comments, id, clickHandler }) => {
 	return (
 		<StyledPost>
 			<div className="post" id={id}>
@@ -14,8 +14,8 @@ const ViewPost = ({ title, message, comments, id, handleClick }) => {
 					{/* {console.log(comments)} */}
 					{/* {comments.map(comment, index) => { <li>{}</li>}} */}
 				</ul>
-				<button onClick={handleClick}>Edit</button>
-				<button>Delete</button>
+				<button onClick={clickHandler}>edit</button>
+				<button onClick={clickHandler}>delete</button>
 			</div>
 		</StyledPost>
 	);
@@ -28,5 +28,5 @@ ViewPost.propTypes = {
 	message: PropTypes.string,
 	id: PropTypes.string,
 	comments: PropTypes.array,
-	handleClick: PropTypes.func,
+	clickHandler: PropTypes.func,
 };
